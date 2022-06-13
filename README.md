@@ -137,7 +137,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main  # Set a branch name to trigger deployment
+      - main  # Set a branch name to trigger deployment.
   pull_request:
 
 jobs:
@@ -163,6 +163,9 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        # If you're changing the branch from main, 
+        # also change the `main` in `refs/heads/main` 
+        # below accordingly.
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
